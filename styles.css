@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.expiration-container {
+  display: flex;
+  gap: 10px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #333;
+}
+
+.login-container .footer {
+  font-size: 12px;
+  color: #999;
+  margin-top: 20px;
+}
+
+.login-container .footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.data-protected {
+  color: #328e67;
+  font-size: 12px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.disclaimer {
+  color: #b8b8b8;
+  position: absolute;
+  bottom: 5px;
+  font-size: 7px;
+}
