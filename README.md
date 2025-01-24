@@ -1,6 +1,6 @@
 # shein-phising-campaign
 
-A phising campaign mimicking SHEIN for a class project
+A phising campaign mimicking SHEIN for a Cybersecurity class project
 
 ## Phase 1
 The target get sent a fake "Special Deal for You" SHEIN branded email, pretending to show big 30% sales from SHEIN. Pressing the "Collect All" button on the email will redirect the user to a fake SHEIN login page, beginning Phase 2
