@@ -1,5 +1,6 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
+const cors = require("cors");
 const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 8080;
@@ -10,12 +11,19 @@ const limiter = rateLimit({
   standardHeaders: "draft-8",
 });
 
+app.set("trust proxy", 1); // Trust the first proxy
+app.use(
+  cors({
+    origin: "https://dioxair.github.io",
+    credentials: false,
+  })
+);
+
 app.use(express.json());
 app.use(limiter);
 app.use(errorHandler);
 
 app.get("/report-hit", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "https://dioxair.github.io");
   fs.appendFileSync(
     "logs/hits.txt",
     `${new Date().toLocaleString("en-US")}\nIP: ${req.ip}\n\n`
