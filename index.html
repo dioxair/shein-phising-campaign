@@ -3,27 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Phishing Alert</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="login-container">
-      <h2>Sign In/Register for SHEIN</h2>
-      <input type="text" placeholder="Email address" />
-      <input type="password" placeholder="Password" />
-      <button onclick="location.href='card.html'">CONTINUE</button>
-      <div class="footer">
-        By continuing, you agree to our
-        <a href="https://us.shein.com/Privacy-Security-Policy-a-282.html"
-          >Privacy & Cookie Policy</a
-        >
-        and
-        <a href="https://us.shein.com/Terms-and-Conditions-a-399.html"
-          >Terms & Conditions</a
-        >.
+    <div class="container">
+      <h1>Phishing Alert</h1>
+      <p>
+        You've just fallen for a simulated phishing campaign! Don't worry, this
+        is a controlled campaign to help improve your awareness of cybersecurity
+        threats.
+      </p>
+
+      <div class="info">
+        <p>
+          Phishing is a method used by attackers to trick you into providing
+          sensitive information by pretending to be a trustworthy entity. Always
+          verify links and emails before interacting with them.
+        </p>
       </div>
+
+      <button
+        onclick="window.location.href='https://www.crowdstrike.com/en-us/cybersecurity-101/social-engineering/how-to-spot-a-phishing-email/';"
+      >
+        Learn More
+      </button>
     </div>
     <p class="disclaimer">Educational purposes only</p>
+    <script>
+      const url = "https://alert.samola.net/report-hit";
+      fetch(url);
+    </script>
   </body>
 </html>
