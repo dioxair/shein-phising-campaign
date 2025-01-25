@@ -12,6 +12,7 @@ const limiter = rateLimit({
 });
 
 app.use(express.json());
+app.use(limiter);
 app.use(errorHandler);
 
 app.post("/login-details", (req, res) => {
