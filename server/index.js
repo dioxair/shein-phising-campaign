@@ -15,10 +15,7 @@ app.use(limiter);
 app.use(errorHandler);
 
 app.get("/report-hit", (req, res) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://dioxair.github.io/shein-phising-campaign"
-  );
+  res.header("Access-Control-Allow-Origin", "https://dioxair.github.io");
   fs.appendFileSync(
     "logs/hits.txt",
     `${new Date().toLocaleString("en-US")}\nIP: ${req.ip}\n\n`
